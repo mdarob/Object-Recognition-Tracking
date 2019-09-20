@@ -13,16 +13,14 @@
 using namespace std;
 using namespace cv;
 
-// THIS PROGRAM SHOULD OPEN PICTURE AND TELL ME WHERE THE POSITION OF THE RED BALL
-// IS SO THAT I CAN GO INSIDE THE MAT AND SEE THE EXACT VALUES.
-//EVERNTUALLY MY GOAL IS TO KNOW WHERE THE MATRIX IS
+// THIS PROGRAM OPENS THE PICTURE AND TELL ME THE MATRIX VALUES INSIDE THE PICTURE
 
 vector<Vec3f> v3fCircles; 
 Mat frame;
 
 int main() {
 
-	std::vector<cv::Vec3f> v3fCircles;   // 3 element vector of floats, this will be the pass by reference output of HoughCircles(), why 3 float?
+	std::vector<cv::Vec3f> v3fCircles; 
 
 	//RGB, Red green blue
 	int lowR = 0;
