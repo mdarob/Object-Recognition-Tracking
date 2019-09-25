@@ -12,9 +12,9 @@ using namespace cv;
 
 int main()
 {
-	VideoCapture leftCam(0);	  //lets say 0 is left, 1 is right
+	VideoCapture leftCam(0);	  // 0 is left camera, and 1 is right cam
 	if (leftCam.isOpened() == false){cout << "error: Webcam connect unsuccessful\n";	return(0);    }
-	VideoCapture rightCam(1);	  //lets say 1 is right
+	VideoCapture rightCam(1);	  
 	if (rightCam.isOpened() == false){cout << "error: Webcam connect unsuccessful\n";	return(0);    }
 	Mat left, right;	//Mat leftClone, rightClone;
 
@@ -28,13 +28,13 @@ int main()
 		if (right.empty()){cout << "No frame to read" << endl;  break;}		
 
 		    Size imagesize = left.size();
-		    Mat disparity_left= Mat(imagesize.height,imagesize.width,CV_16S); 	//height and width of the image
+		    Mat disparity_left= Mat(imagesize.height,imagesize.width,CV_16S); 	
 		    Mat disparity_right=Mat(imagesize.height,imagesize.width,CV_16S);
 		    Mat g1,g2,disp,disp8;
-		    cvtColor(left,g1, COLOR_BGR2GRAY);  		 // convert color to gray
+		    cvtColor(left,g1, COLOR_BGR2GRAY);  		
 		    cvtColor(right,g2, COLOR_BGR2GRAY);
 
-		    Ptr<cv::StereoBM> sbm =  StereoBM::create(0,11);   // numDisparities, blocksize
+		    Ptr<cv::StereoBM> sbm =  StereoBM::create(0,11);  
 		    
 			
 		    sbm->setDisp12MaxDiff(1);
